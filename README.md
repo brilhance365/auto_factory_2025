@@ -1,4 +1,4 @@
-# Final Considerations
+## Final Considerations
 
 This project reflects my current evolution from Operational Data Analyst to a more technical role in Data Engineering. Although I am still improving my programming skills in PySpark, SQL, and Python, my strength lies in understanding business details and the quality requirements of industrial data.
 
@@ -42,6 +42,10 @@ The architecture follows the **"ETL Understood"** principles, focusing on **Idem
 - **Focus:** Team-by-team performance ranking and shift-level operational loss analysis.
 - **Value:** Aggregated tables ready for **Power BI** or **Direct SQL Analysis** to support Gemba walks and daily meetings.
 
+## Tech Stack & Skills
+Core: Python, PySpark (Learning), SQL, Excel (Expert), Power BI (Advanced).
+Platform: Azure Databricks, Delta Lake.
+Domain: Lean Manufacturing, 8D/RCA, KPI Reporting, SAP ERP (Data extraction).
 ---
 
 ## Repository Structure
