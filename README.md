@@ -1,42 +1,43 @@
-# auto_factory_2025
-# Industrial Data Pipeline: Medallion Architecture with Databricks 🏭⚙️
+# Auto Factory 2025: Industrial Data Pipeline 🏭⚙️
+### Medallion Architecture on Databricks | From Shop Floor to Actionable Insights
 
-This repository contains the implementation of an end-to-end data pipeline using the **Medallion Architecture** on Azure Databricks. The project focuses on transforming industrial data silos (Production, Maintenance, Quality and HR) into actionable insights for shop floor management.
+This project demonstrates an end-to-end industrial data pipeline built on **Azure Databricks**, transforming raw manufacturing silos into structured, analysis-ready datasets. 
 
-## Project Overview
-The aim is to consolidate fragmented data from various manufacturing systems to enable analysis of overall efficiency (OEE), root causes of downtime, and the correlation between team performance and quality.
-
-The project follows the principles of **Idempotence, Data Contracts and Observability** based on the *ETL Understood* framework.
+As a professional with **14+ years of experience in Industrial Operations, Quality, and Continuous Improvement**, I developed this project to bridge the gap between "physical" shop floor reality and modern data engineering practices.
 
 ---
 
-## Pipeline Architecture
+## 🎯 Project Motivation
+Coming from a background in **Lean Manufacturing, RCA, and Quality Management (PSA Groupe)**, I understand that data is only valuable if it drives operational intervention. This pipeline was designed to answer:
+- Which production teams have the best performance-to-quality ratio?
+- Where are the biggest daily "improvement opportunities" by shift?
+- How do maintenance logs (SAP style) correlate with real-time downtime?
 
-### 1. Bronze Layer (Raw Ingestion)
-Responsible for capturing data ‘as-is’.
-- **Data Sources:** Excel (Factory Tables), CSV (Maintenance, HR, Engineering), JSON/JSONL (Safety, Quality) and Downtime Events.
-- **Processing:** Parameterised ingestion via PySpark.
-- **Highlights:** 
-  - Automatic normalisation of table names.
-  - Injection of technical metadata (`_input_file_name`, `_ingestion_timestamp`).
-  - Automatic movement to the archive folder post-processing.
+## 🛠️ The Medallion Pipeline
+The architecture follows the **"ETL Understood"** principles, focusing on **Idempotency, Data Contracts, and Observability**.
 
-### 2. Silver Layer (Refinement and Quality) - *Under Development*
-Where data gains operational reliability.
-- **Standardisation:** Application of data types (casting) and standard column names.
-- **Quality (Data Contracts):** Separation of valid and rejected records (`quarantine`).
-- **Deduplication:** Record retention logic based on business keys.
-- **Idempotence:** Use of `MERGE` (Upsert) to ensure repeatability without duplication.
+### 1. Bronze (Raw Ingestion)
+- **Ingestion:** Automated ingestion of Excel (Factory tables), CSV (Maintenance/HR), and JSONL (Quality/Safety).
+- **Metadata:** Injection of `_input_file_name` and `_ingestion_timestamp` for full lineage.
+- **Organization:** Normalization of source names and automatic file archiving post-processing.
+
+### 2. Silver (Cleansing & Standardization)
+- **Data Contracts:** Implementation of schema enforcement and type casting (PySpark).
+- **Quality Logic:** Separation of valid records from rejections (Quarantine pattern).
+- **Reliability:** Deduplication using business keys and `MERGE` (Upsert) logic to ensure idempotency.
+
+### 3. Gold (Business Insights)
+- **Focus:** Team-by-team performance ranking and shift-level operational loss analysis.
+- **Value:** Aggregated tables ready for **Power BI** or **Direct SQL Analysis** to support Gemba walks and daily meetings.
 
 ---
 
 ## 📂 Repository Structure
-
 ```text
-├── notebooks/
-│   ├── 00_utils/             # Auxiliary functions (Log, IO, normalisation)
-│   ├── 01_ingestion_orders/  # Initial load pipeline
-│   └── 02_silver_orders/     # Cleaning and application of business rules
-|   
-├── samples/                  # Sample files (CSV, JSON, XLSX)
-└── README.md                 # Project documentation
+├── 01_ingestion_orders.ipynb   # Multi-source raw ingestion
+├── 02_bronze_orders.ipynb      # Bronze layer management
+├── 03_silver_orders.ipynb      # Data cleaning, Contracts & Quality rules
+├── 04_gold_orders.ipynb        # KPI Aggregations & Team Insights
+├── run_pipeline.ipynb          # End-to-end Orchestrator
+├── utils.ipynb                 # Shared helper functions
+└── README.md                   # Documentation
