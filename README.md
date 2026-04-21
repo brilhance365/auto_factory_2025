@@ -1,4 +1,16 @@
-# Auto Factory 2025: Industrial Data Pipeline 🏭⚙️
+# Final Considerations
+
+This project reflects my current evolution from Operational Data Analyst to a more technical role in Data Engineering. Although I am still improving my programming skills in PySpark, SQL, and Python, my strength lies in understanding business details and the quality requirements of industrial data.
+
+Built with the support of technical documentation (Databricks) and AI tools to ensure best practices in modern cloud architecture.
+
+Author: Gustavo Fernandes 
+
+Operational Analyst | Process & Quality Improvement Specialist
+
+---
+
+# Auto Factory 2025: Industrial Data Pipeline
 ### Medallion Architecture on Databricks | From Shop Floor to Actionable Insights
 
 This project demonstrates an end-to-end industrial data pipeline built on **Azure Databricks**, transforming raw manufacturing silos into structured, analysis-ready datasets. 
@@ -7,13 +19,13 @@ As a professional with **14+ years of experience in Industrial Operations, Quali
 
 ---
 
-## 🎯 Project Motivation
+## Project Motivation
 Coming from a background in **Lean Manufacturing, RCA, and Quality Management (PSA Groupe)**, I understand that data is only valuable if it drives operational intervention. This pipeline was designed to answer:
 - Which production teams have the best performance-to-quality ratio?
 - Where are the biggest daily "improvement opportunities" by shift?
 - How do maintenance logs (SAP style) correlate with real-time downtime?
 
-## 🛠️ The Medallion Pipeline
+## The Medallion Pipeline
 The architecture follows the **"ETL Understood"** principles, focusing on **Idempotency, Data Contracts, and Observability**.
 
 ### 1. Bronze (Raw Ingestion)
@@ -32,7 +44,7 @@ The architecture follows the **"ETL Understood"** principles, focusing on **Idem
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```text
 ├── 01_ingestion_orders.ipynb   # Multi-source raw ingestion
 ├── 02_bronze_orders.ipynb      # Bronze layer management
